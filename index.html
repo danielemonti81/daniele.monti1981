@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuori in Movimento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="video-container">
+	<video controls autoplay muted>
+            <source src="Miscibilit.mp4" type="video/mp4">
+            Il tuo browser non supporta il tag video.
+        </video>
+    </div>
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.style.animation = "pop 0.5s forwards";
+                setTimeout(() => heart.remove(), 500);
+            }, 4500);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
